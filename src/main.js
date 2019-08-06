@@ -3,7 +3,18 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueLazyload from 'vue-lazyload'
+import 'styles/reset.css'
+import 'styles/border.css'
+import 'lib-flexible/flexible'
+import 'styles/iconfont.css'
+import axios from 'axios'
+Vue.prototype.$axios = axios
 
+// 图片懒加载
+Vue.use(VueLazyload, {
+  loading: '../static/img/loading.gif'
+})
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
