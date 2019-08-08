@@ -1,11 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Test from '@/view/Test'
-import Title1 from '@/view/Title1'
-import Title2 from '@/view/Title2'
-import Goods from '@/view/Goods'
+import Test from '@/view/Test'
+// import Title1 from '@/view/Title1'
+// import Title2 from '@/view/Title2'
+// import Goods from '@/view/Goods'
 import Home from '@/view/home'
 import Classify from '@/view/classify'
+import GoodList from '@/view/goodList'
 Vue.use(Router)
 
 export default new Router({
@@ -13,11 +14,7 @@ export default new Router({
     {
       path: '/test',
       name: '/',
-      components: {
-        default: Goods,
-        title1: Title1,
-        title2: Title2
-      }
+      component: Test
       // component: Test
       //     children: [
       //       {
@@ -43,6 +40,11 @@ export default new Router({
       path: '/classify',
       name: 'classify',
       component: Classify
+    },
+    {
+      path: '/goodList',
+      name: 'goodList',
+      component: GoodList
     }
     //   {
     //     path: '/goods',

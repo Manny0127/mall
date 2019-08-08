@@ -1,11 +1,7 @@
 <template>
   <div class="classify">
     <!-- 顶部栏 -->
-    <div class="topNav">
-      <span class="iconfont" @click="goBack">&#xe660;</span>
-      <div class="title">分类</div>
-      <span class="iconfont" @click="goBackHome">&#xe64f;</span>
-    </div>
+    <topNav></topNav>
     <!-- 主体部分 -->
     <div class="main" :style="{height:mainHeight}">
       <!-- 左侧主体部分 -->
@@ -32,7 +28,12 @@
             <div class="contents" v-for="(item,index) in rightClass.details" :key="index">
               <div class="title">{{item.title}}</div>
               <div class="details">
-                <div class="item" v-for="(item1,index1) in item.icon" :key="index1">
+                <div
+                  class="item"
+                  v-for="(item1,index1) in item.icon"
+                  :key="index1"
+                  @click="gotoGoodList(item1.name)"
+                >
                   <img :src="item1.iconImg" alt />
                   <p>{{item1.name}}</p>
                 </div>
@@ -48,7 +49,11 @@
 <script>
 /* eslint-disable */
 import BSscroll from "better-scroll";
+import topNav from "@/components/topNav";
 export default {
+  components: {
+    topNav
+  },
   created() {
     this.mainHeight = window.innerHeight - 45 + "px";
   },
@@ -71,14 +76,6 @@ export default {
     this.getClassData();
   },
   methods: {
-    // 返回上一页
-    goBack() {
-      this.$router.go(-1);
-    },
-    goBackHome() {
-      this.$router.push({ path: "/" });
-    },
-
     //获取mock数据
     getClassData() {
       this.$axios.get("/api/classify.json").then(res => {
@@ -103,6 +100,16 @@ export default {
     // 点击时添加高亮类
     addActiveClass(index) {
       this.currentIdx = index;
+    },
+
+    // 跳转至goodList页面
+    gotoGoodList(title) {
+      this.$router.push({
+        path: "/goodList",
+        query: {
+          title: title
+        }
+      });
     }
   }
 };
@@ -112,20 +119,6 @@ export default {
 @import "../assets/styles/variable.less";
 .classify {
   background-color: @bgColor1;
-  .topNav {
-    height: 45px;
-    display: flex;
-    text-decoration: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 12px;
-    border-bottom: 1px solid @bgColor2;
-    background-color: #fff;
-    .iconfont {
-      font-size: 20px;
-      font-weight: bold;
-    }
-  }
   .main {
     display: flex;
     flex-direction: row;
