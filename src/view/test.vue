@@ -20,6 +20,7 @@
     <child @childFn="parentFn"></child>
     <br />
     <div>子组件传来的值:{{msg}}</div>
+    <!-- <van-button type="primary">主要按钮</van-button> -->
   </div>
 </template>
 

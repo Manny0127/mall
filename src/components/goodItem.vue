@@ -1,5 +1,5 @@
 <template>
-  <div class="goodItem">
+  <div class="goodItem" @click="gotoDetails">
     <img class="goodImg" :src="img" alt />
     <div class="desc">{{desc}}</div>
     <div class="price">
@@ -27,6 +27,13 @@ export default {
     price_prev: {
       type: null,
       default: '原价'
+    }
+  },
+  methods: {
+    gotoDetails () {
+      this.$router.push({
+        path: '/goodsDetail'
+      })
     }
   }
 }

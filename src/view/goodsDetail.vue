@@ -4,7 +4,7 @@
     <div class="carousel">
       <swiper :options="swiperOption">
         <swiper-slide v-for="(item,index) in swiperData" :key="index">
-          <img :src="item" alt class="myImg" />
+          <img :src="item" alt class="myImg" @click="previewImg" />
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -16,6 +16,7 @@
 /* eslint-disable */
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+import { ImagePreview } from "vant";
 export default {
   data() {
     return {
@@ -23,6 +24,10 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           dynamicBullets: true
+        },
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
         }
       },
       swiperData: []
@@ -41,6 +46,10 @@ export default {
         console.log(res);
         this.swiperData = res.data.swiper;
       });
+    },
+    // 图片预览
+    previewImg() {
+      ImagePreview(this.swiperData);
     }
   }
 };
