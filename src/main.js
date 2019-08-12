@@ -9,9 +9,9 @@ import 'styles/border.css'
 import 'lib-flexible/flexible'
 import 'styles/iconfont.css'
 import axios from 'axios'
-import { Button } from 'vant'
+import { Button, AddressList } from 'vant'
 Vue.prototype.$axios = axios
-Vue.use(Button)
+Vue.use(Button).use(AddressList)
 
 // 图片懒加载
 Vue.use(VueLazyload, {
