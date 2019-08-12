@@ -8,6 +8,7 @@ import Home from '@/view/home'
 import Classify from '@/view/classify'
 import GoodList from '@/view/goodList'
 import GoodsDetails from '@/view/goodsDetail'
+import Cart from '@/view/cart'
 Vue.use(Router)
 
 export default new Router({
@@ -51,6 +52,11 @@ export default new Router({
       path: '/goodsDetail',
       name: 'goodsDetail',
       component: GoodsDetails
+    },
+    {
+      path: '/cart',
+      name: 'cart',
+      component: Cart
     }
     //   {
     //     path: '/goods',

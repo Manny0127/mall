@@ -29,6 +29,7 @@
         :desc="item.desc"
         :price_current="item.price"
         :price_prev="item.discount"
+        @click="goToGoodDetails"
       ></goodItem>
     </div>
   </div>
@@ -58,6 +59,11 @@ export default {
         this.goodsList = res.data.goodslist;
         console.log(this.goodsList);
       });
+    },
+
+    // 跳转商品详情页
+    goToGoodDetails() {
+      console.log(111);
     }
   }
 };

@@ -4,7 +4,7 @@
     <div class="carousel">
       <swiper :options="swiperOption">
         <swiper-slide v-for="(item,index) in swiperData" :key="index">
-          <img :src="item" alt class="myImg" />
+          <img :src="item" alt class="myImg" @click="previewImg" />
         </swiper-slide>
         <div class="swiper-pagination" slot="pagination"></div>
       </swiper>
@@ -16,6 +16,8 @@
 /* eslint-disable */
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
+// 轮播图预览图
+import { ImagePreview } from "vant";
 export default {
   data() {
     return {
@@ -23,6 +25,11 @@ export default {
         pagination: {
           el: ".swiper-pagination",
           dynamicBullets: true
+        },
+        // 自动播放
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false
         }
       },
       swiperData: []
@@ -36,11 +43,17 @@ export default {
     this.getSwiperData();
   },
   methods: {
+    // 获取轮播图数据，mock里面没有，这里用首页的图代替
     getSwiperData() {
       this.$axios.get("/api/index.json").then(res => {
-        console.log(res);
         this.swiperData = res.data.swiper;
+        console.log(this.swiperData);
       });
+    },
+
+    // 轮播图图片预览
+    previewImg() {
+      ImagePreview(this.swiperData);
     }
   }
 };
