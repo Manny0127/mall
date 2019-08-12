@@ -1,5 +1,5 @@
 <template>
-  <div class="goodItem" @click="goToGoodDetails">
+  <div class="goodItem" @click="gotoDetails">
     <img class="goodImg" :src="img" alt />
     <div class="desc">{{desc}}</div>
     <div class="price">
@@ -12,31 +12,31 @@
 <script>
 export default {
   components: {
-    name: 'goodItem'
+    name: "goodItem"
   },
   props: {
     img: String,
     desc: {
       type: String,
-      default: '商品描述'
+      default: "商品描述"
     },
     price_current: {
       type: null,
-      default: '现价'
+      default: "现价"
     },
     price_prev: {
       type: null,
-      default: '原价'
+      default: "原价"
     }
   },
   methods: {
-    goToGoodDetails () {
+    gotoDetails() {
       this.$router.push({
-        path: '/goodsDetail'
-      })
+        path: "/goodsDetail"
+      });
     }
   }
-}
+};
 </script>
 
 <style lang="less" scoped>
