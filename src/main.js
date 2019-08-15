@@ -9,9 +9,13 @@ import 'styles/border.css'
 import 'lib-flexible/flexible'
 import 'styles/iconfont.css'
 import axios from 'axios'
-import { Button, AddressList } from 'vant'
+import { Button, AddressList, AddressEdit } from 'vant'
+import '@/assets/styles/overwrite.css'
+import store from './store'
 Vue.prototype.$axios = axios
-Vue.use(Button).use(AddressList)
+Vue.use(Button)
+  .use(AddressList)
+  .use(AddressEdit)
 
 // 图片懒加载
 Vue.use(VueLazyload, {
@@ -23,6 +27,7 @@ Vue.config.productionTip = false
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })

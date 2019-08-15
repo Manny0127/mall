@@ -1,0 +1,8 @@
+.van-radio__icon--checked .van-icon {
+  border-color: #de3ed396 !important;
+  background-color: #de3ed396 !important;
+}
+.van-button--danger {
+  background-color: #de3ed396 !important;
+  border: 1px solid #de3ed396 !important;
+}

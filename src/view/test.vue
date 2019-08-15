@@ -17,10 +17,11 @@
     </div>-->
 
     <!-- 子组件 -->
-    <child @childFn="parentFn"></child>
+    <!-- <child @childFn="parentFn"></child>
     <br />
-    <div>子组件传来的值:{{msg}}</div>
+    <div>子组件传来的值:{{msg}}</div>-->
     <!-- <van-button type="primary">主要按钮</van-button> -->
+    <div>获取vuex中的值:{{this.$store.state.city}}</div>
   </div>
 </template>
 
