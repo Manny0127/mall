@@ -17,6 +17,7 @@
 <script>
 /* eslint-disable */
 import areaList from "../assets/js/area";
+import { mapMutations } from "vuex";
 export default {
   data() {
     return {
@@ -38,8 +39,10 @@ export default {
       console.log(e);
 
       //   将地址信息存储localStorage中
-      localStorage.setItem("address", JSON.stringify(data));
+      // localStorage.setItem("address", JSON.stringify(data));
 
+      // 点击保存时，将数据作为参数提交mutations
+      // this.saveAddress(data);
       this.$router.push({
         path: "/address"
       });
@@ -60,7 +63,8 @@ export default {
       } else {
         this.searchResult = [];
       }
-    }
+    },
+    ...mapMutations(["saveAddress"])
   }
 };
 </script>

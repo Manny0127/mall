@@ -51,6 +51,13 @@ export default {
       recommendData: []
     };
   },
+  created: function() {
+    window.onhashchange = function(event) {
+      console.log(event.oldURL, event.newURL);
+      let hash = location.hash.slice(1);
+      document.body.style.color = hash;
+    };
+  },
   methods: {
     // 获取首页数据
     getData() {

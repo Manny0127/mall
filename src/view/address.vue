@@ -34,8 +34,20 @@ export default {
   },
   created () {
     // 进入页面将添加的地址添加进list中去
-    let address = JSON.parse(localStorage.getItem('address'))
-    this.list.push(address)
+    // let address = JSON.parse(localStorage.getItem('address'))
+    // this.list.push(address)
+  },
+  mounted () {
+    // 获取vuex仓库中的address
+    let addressList = this.$store.state.address
+    console.log(addressList)
+    // addressList.forEach((item, idx) => {
+    //   // eslint-disable-next-line
+    //   item.id = idx + "";
+    //   if (item.isDefault) {
+    //     this.chosenAddressId = item.id
+    //   }
+    // })
   },
   methods: {
     onAdd () {
