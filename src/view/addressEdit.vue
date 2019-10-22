@@ -41,14 +41,15 @@ export default {
       //   将地址信息存储localStorage中
       // localStorage.setItem("address", JSON.stringify(data));
 
-      // 点击保存时，将数据作为参数提交mutations
-      // this.saveAddress(data);
+      // 点击保存时，将选中的地址作为参数提交mutations，利用辅助函数mapMutations，可以跳过dispatch这一步
+      this.saveAddress(data);
       this.$router.push({
         path: "/address"
       });
       //   let addressData = JSON.parse(localStorage.getItem("address")) || [];
       //   addressData.push(data);
     },
+    ...mapMutations(["saveAddress"]),
     onDelete() {
       //   Toast('delete')
     },

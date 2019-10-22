@@ -1,6 +1,7 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Test from '@/view/Test'
+import TestCity from '@/view/testCity'
 // import Title1 from '@/view/Title1'
 // import Title2 from '@/view/Title2'
 // import Goods from '@/view/Goods'
@@ -11,6 +12,7 @@ import GoodsDetails from '@/view/goodsDetail'
 import Cart from '@/view/cart'
 import Address from '@/view/address'
 import AddressEdit from '@/view/addressEdit'
+
 Vue.use(Router)
 
 export default new Router({
@@ -69,6 +71,11 @@ export default new Router({
       path: '/addressEdit',
       name: 'addressEdit',
       component: AddressEdit
+    },
+    {
+      path: '/testCity',
+      name: 'testCity',
+      component: TestCity
     }
   ]
 })

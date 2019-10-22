@@ -41,13 +41,14 @@ export default {
     // 获取vuex仓库中的address
     let addressList = this.$store.state.address
     console.log(addressList)
-    // addressList.forEach((item, idx) => {
-    //   // eslint-disable-next-line
-    //   item.id = idx + "";
-    //   if (item.isDefault) {
-    //     this.chosenAddressId = item.id
-    //   }
-    // })
+    addressList.forEach((item, idx) => {
+      // eslint-disable-next-line
+      item.id = idx + "";
+      if (item.isDefault) {
+        this.chosenAddressId = item.id
+      }
+    })
+    this.list = addressList
   },
   methods: {
     onAdd () {
